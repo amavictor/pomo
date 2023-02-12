@@ -23,9 +23,7 @@ export default function AuthenticationRoutes() {
     <stack.Navigator
       initialRouteName='Signin-Signup'
       screenOptions={{
-        gestureEnabled: "true",
-        title: null,
-        
+        gestureEnabled: true,
       }}
     >
       <stack.Screen
@@ -36,17 +34,34 @@ export default function AuthenticationRoutes() {
             open: springAnimation,
             close:springAnimation
           },
-          headerShown:false
+          headerShown: false,
+          title:"Sign up"
           
         }}
 
       />
-      <stack.Screen name="create-account" component={CreateAccount} options={{}} />
-      <stack.Screen name="create-profile" component={FillProfile}  />
+      <stack.Screen name="create-account" component={CreateAccount}
+        options={{
+          transitionSpec: {
+            open: springAnimation,
+            close:springAnimation
+          },
+          headerShown: true,
+          title:null
+        }}/>
+      <stack.Screen name="create-profile" component={FillProfile}
+        options={{
+          transitionSpec: {
+            open: springAnimation,
+            close: springAnimation
+          },
+          headerShown: false,
+          title: null
+        }}
+      />
       <stack.Screen name="login" component={Login} />
 
     </stack.Navigator>
   )
 }
 
-const styles = StyleSheet.create({})
